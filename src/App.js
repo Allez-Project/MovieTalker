@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Main from "./routes/Main";
+import Login from "./routes/Login";
+import FindId from "./routes/FindId";
+import FindPassword from "./routes/FindPassword";
+import Join from "./routes/Join";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path={`/`} element={<Main />}></Route>
+        <Route exact path={`/login`} element={<Login />}></Route>
+        <Route exact path={`/login/id`} element={<FindId />}></Route>
+        <Route
+          exact
+          path={`/login/password`}
+          element={<FindPassword />}
+        ></Route>
+        <Route exact path={`/login/join`} element={<Join />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
